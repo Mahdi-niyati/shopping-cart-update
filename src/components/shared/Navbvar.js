@@ -8,21 +8,24 @@ import { CartContext } from '../../context/CartContextProvider';
 //icon
 import shopIcon from "../../assets/icons/shop.svg";
 
-const Navbvar = () => {
+// Style
+import styles from "./Navbar.module.css";
 
-    const {state} = useContext(CartContext)
+const Navbar = () => {
+
+    const {state} = useContext(CartContext);
 
     return (
-        <div>
-            <div>
-                <Link to="/products">Products</Link>
-                <diV>
-                    <Link to="/Cart"><img src={shopIcon} alt="shop" /></Link>
+        <div className={styles.mainContainer}>
+            <div className={styles.container}>
+                <Link className={styles.productLink} to="/products">Products</Link>
+                <div className={styles.iconContainer}>
+                    <Link to="/cart"><img src={shopIcon} /></Link>
                     <span>{state.itemsCounter}</span>
-                </diV>
+                </div>
             </div>
         </div>
     );
 };
 
-export default Navbvar;
+export default Navbar;
